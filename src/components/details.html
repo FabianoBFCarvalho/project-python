@@ -1,0 +1,23 @@
+<div *ngIf="contact" class="contact-details">
+    <p> <i>Name: </i> {{contact.name}} </p>
+    <p> <i>Email: </i> {{contact.email}}</p>
+    <p> <i>Tellphone: </i> {{contact.phone}}</p>
+    <p> <i>Amount Deals: </i> {{contact.amount_deals}}</p>
+    <p> <i>Tags: </i> {{contact.tags}}</p>
+</div>
+
+<div *ngIf="deal" class="deal-details">
+    <p> <i>Title: </i> {{deal.title}}</p>    
+    <p> <i>Interest: </i> {{deal.interest}}</p>
+    <p> <i>Status: </i> {{deal.status}}</p>
+    <p> <i>Contact: </i> {{deal.contact.name}}</p>
+    <p> <i>Property address: </i> {{deal.property.address}}</p>
+</div>
+
+<div *ngIf="property" class="property-details">
+    <p> <i>Address: </i> {{property.address}}</p>
+    <p> <i>City: </i> {{property.city}}</p>
+    <p> <i>Finality: </i> {{property.finality}}</p>
+    <p> <i>Site: </i> {{property.site}}</p>
+    <p> <i>Description: </i> {{property.description}}</p>
+</div>

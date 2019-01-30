@@ -1,0 +1,13 @@
+<span class="title-page">Deals</span> 
+<ion-icon name="add" (click)="dealForm()"></ion-icon>
+<ion-content class="content-components">
+    <ion-card class="deal" *ngFor="let deal of deals" (click)="showDeal(deal)">
+        <ion-card-content>
+            <p>{{deal.title}}</p>
+            <p>{{deal.value}}</p>
+            <p>{{deal.contact.name}}</p>
+            <button (click)="dealForm(deal)">Edit</button>
+            <button (click)="delete(deal.db_id)">Delete</button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

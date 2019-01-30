@@ -1,0 +1,25 @@
+<form #form="ngForm" (ngSubmit)="save(form)">
+    <ion-label >Title</ion-label>
+    <ion-input [(ngModel)]="deal.title" name="title"> </ion-input>
+    <ion-label>Interest</ion-label>
+    <ion-input [(ngModel)]="deal.interest" type="text" required name="interest"></ion-input>
+    <ion-label>Status</ion-label>
+    <ion-input type="text" [(ngModel)]="deal.status" name="status"></ion-input>
+    <ion-label>Value</ion-label>
+    <ion-input type="number" [(ngModel)]="deal.value" name="status"></ion-input>
+    <ion-item>
+        <ion-label>Select Contact</ion-label>
+        <ion-select [(ngModel)]="contact" [compareWith]="compareFn" name="contact">
+          <ion-option [value]="contact" *ngFor="let contact of contacts">{{contact.name}}</ion-option>
+        </ion-select>
+    </ion-item> 
+    <ion-item>
+        <ion-label>Select Property</ion-label>
+        <ion-select [(ngModel)]="property" [compareWith]="compareFn" name="property">
+          <ion-option [value]="property" *ngFor="let property of properties">{{property.address}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+            
+</form>
+<button ion-button (click)="save(form)">Save</button>

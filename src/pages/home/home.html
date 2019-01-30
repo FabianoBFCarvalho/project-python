@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+	<ion-grid>
+		<ion-row>
+			<ion-col size="4">
+				<contact
+					(onClickContact)="onClickContact($event)">
+				</contact>
+			</ion-col>
+
+			<ion-col  size="4">
+				<deal
+					(onClickDeal)="onClickDeal($event)">
+				</deal>
+			</ion-col>
+
+			<ion-col size="4">
+				<property
+					(onClickProperty)="onClickProperty($event)">
+				</property>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<details
+		[deal]="deal"
+		[contact]="contact"
+		[property]="property">
+	</details>
+
+</ion-content>
