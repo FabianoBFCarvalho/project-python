@@ -44,7 +44,7 @@ export class ContactService {
 
     update(contact: Contact) {
         return new Observable<any>(observer => {
-			this.httpClient.put(this._app.apiUrl() +'/contact/' + contact.db_id, {'contact': contact}).subscribe(
+			this.httpClient.put(this._app.apiUrl() +'/contacts/' + contact.db_id, {'contact': contact}).subscribe(
                 response => {
 					observer.next(response);
 					observer.complete();
@@ -59,7 +59,7 @@ export class ContactService {
 
     delete(db_id: string) {
         return new Observable<boolean>(observer => {
-			this._request.delete(this._app.apiUrl() + '/contact/' + db_id).subscribe(
+			this._request.delete(this._app.apiUrl() + '/contacts/' + db_id).subscribe(
                 () => observer.next(true),
 				error => console.log(error)
 			);
