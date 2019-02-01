@@ -10,8 +10,8 @@
     <p> <i>Title: </i> {{deal.title}}</p>    
     <p> <i>Interest: </i> {{deal.interest}}</p>
     <p> <i>Status: </i> {{deal.status}}</p>
-    <p> <i>Contact: </i> {{deal.contact.name}}</p>
-    <p> <i>Property address: </i> {{deal.property.address}}</p>
+    <p> <i>Contact: </i> {{deal.contact?.name}}</p>
+    <p> <i>Property address: </i> {{deal.property?.address}}</p>
 </div>
 
 <div *ngIf="property" class="property-details">

@@ -46,7 +46,7 @@ export class PropertiesService {
 
     update(property: Property) {
         return new Observable<any>(observer => {
-			this.httpClient.put(this._app.apiUrl() +'/property/' + property.db_id, {'property': property}).subscribe(
+			this.httpClient.put(this._app.apiUrl() +'/properties/' + property.db_id, {'property': property}).subscribe(
                 response => {
 					observer.next(response);
 					observer.complete();
@@ -61,7 +61,7 @@ export class PropertiesService {
 
     delete(db_id: string) {
         return new Observable<boolean>(observer => {
-			this._request.delete(this._app.apiUrl() + '/property/' + db_id).subscribe(
+			this._request.delete(this._app.apiUrl() + '/properties/' + db_id).subscribe(
                 () => observer.next(true),
 				error => console.log(error)
 			);
