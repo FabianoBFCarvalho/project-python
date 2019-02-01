@@ -5,7 +5,7 @@
         <ion-card-content>
             <p>{{deal.title}}</p>
             <p>{{deal.value}}</p>
-            <p>{{deal.contact.name}}</p>
+            <p>{{deal.contact?.name}}</p>
             <button (click)="dealForm(deal)">Edit</button>
             <button (click)="delete(deal.db_id, idx)">Delete</button>
         </ion-card-content>
