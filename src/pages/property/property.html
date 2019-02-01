@@ -1,12 +1,12 @@
 <span class="title-page">Properties</span> 
 <ion-icon name="add" (click)="propertyForm()"></ion-icon>
 <ion-content class="content-components">
-    <ion-card *ngFor="let property of properties" class="property" (click)="showProperty(property)">
+    <ion-card *ngFor="let property of properties; let idx=index" class="property" (click)="showProperty(property)">
         <ion-card-content>
             <p>Address: {{property.address}}, {{property.city}}</p>
             <p>value: {{property.value}}</p>
             <button (click)="propertyForm(property)">Edit</button>
-            <button (click)="delete(property.db_id)">Delete</button>
+            <button (click)="delete(property.db_id, idx)">Delete</button>
         </ion-card-content>
     </ion-card>
 </ion-content>

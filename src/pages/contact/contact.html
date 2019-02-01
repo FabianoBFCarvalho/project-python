@@ -1,11 +1,11 @@
 <span class="title-page">Contacts</span> 
 <ion-icon name="add" (click)="contactForm()"></ion-icon>
 <ion-content class="content-components">
-    <ion-card class="contact" *ngFor="let contact of contacts" (click)="showContact(contact)">
+    <ion-card class="contact" *ngFor="let contact of contacts; let idx=index" (click)="showContact(contact)">
         <ion-card-content>
             <p>{{contact.name}}</p>
             <button (click)="contactForm(contact)">Edit</button>
-            <button (click)="delete(contact.db_id)">Delete</button>
+            <button (click)="delete(contact.db_id, idx)">Delete</button>
         </ion-card-content>
     </ion-card>
 </ion-content>

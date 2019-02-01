@@ -45,7 +45,8 @@ export class PropertyPage {
 	  
 	save(property: Property) {
         this._properties.post(property).subscribe(response => {
-            this.getProperties();
+			property.db_id = response.db_id;
+			this.properties.push(property);
         });
     }
 
@@ -53,9 +54,10 @@ export class PropertyPage {
 		this._properties.update(property).subscribe(() => {});
 	}
 
-	delete(db_id: string) {
-		this._properties.delete(db_id).subscribe(() => {});
-		this.getProperties();
+	delete(db_id: string, idx: number) {
+		this._properties.delete(db_id).subscribe(() => {
+			this.properties.splice(idx, 1);
+		});
 	}
 
 	showProperty(property: Property) {

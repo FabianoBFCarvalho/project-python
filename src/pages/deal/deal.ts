@@ -38,7 +38,10 @@ export class DealPage {
     }
 
     update(deal: DealObjectPrepare) {
-        this._deal.update(deal).subscribe(() => {});
+        this._deal.update(deal).subscribe(response => {
+            deal.deal.db_id = response.db_id;
+            this.deals.push(deal.deal);
+        });
     }
     
     get() {
@@ -47,13 +50,14 @@ export class DealPage {
 
     save(deal: DealObjectPrepare) {
         this._deal.post(deal).subscribe(response =>{
-            console.log(response);
             this.get();
         });
     }
 
-    delete(db_id: string) {
-        this._deal.delete(db_id).subscribe(() => this.get());
+    delete(db_id: string, idx: number) {
+        this._deal.delete(db_id).subscribe(() => {
+            this.deals.splice(idx, 1);
+        });
     }
 
     showDeal(deal: Deal) {

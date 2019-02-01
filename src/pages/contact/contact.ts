@@ -46,7 +46,8 @@ export class ContactPage {
 
     save(contact: Contact) {
         this._contact.post(contact).subscribe(response => {
-            this.getContact();
+            contact.db_id = response.db_id;
+            this.contacts.push(contact);
         });
     }
 
@@ -55,8 +56,10 @@ export class ContactPage {
         });
     }
 
-    delete(db_id: string) {
-        this._contact.delete(db_id).subscribe(() => this.getContact());
+    delete(db_id: string, idx: number) {
+        this._contact.delete(db_id).subscribe(() => {
+            this.contacts.splice(idx, 1);
+        });
     }
 
     showContact(contact: Contact) {
