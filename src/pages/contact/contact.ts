@@ -20,11 +20,11 @@ export class ContactPage {
     ){ }
 
     ngOnInit() {
-        this.getContact();
+        this.getContacts();
     }
 
-    getContact() {
-        this._contact.get().subscribe(contacts => {
+    getContacts() {
+        this._contact.getContacts().subscribe(contacts => {
             this.contacts = contacts;
             console.log(contacts);
             
@@ -63,7 +63,9 @@ export class ContactPage {
     }
 
     showContact(contact: Contact) {
-        this.onClickContact.emit(contact);
+        this._contact.getContact(contact.db_id).subscribe(contact => {
+            this.onClickContact.emit(contact);
+        });
     }
 
 }

@@ -1,4 +1,4 @@
-<span class="title-page">Properties</span> 
+<span class="title-page">Properties</span> <button (click)="searchProperties()">Search Properties</button>
 <ion-icon name="add" (click)="propertyForm()"></ion-icon>
 <ion-content class="content-components">
     <ion-card *ngFor="let property of properties; let idx=index" class="property" (click)="showProperty(property)">

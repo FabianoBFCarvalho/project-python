@@ -43,14 +43,15 @@ export class DealPage {
             this.deals.push(deal.deal);
         });
     }
-    
+
     get() {
         this._deal.get().subscribe(deals => this.deals = deals);
     }
 
     save(deal: DealObjectPrepare) {
-        this._deal.post(deal).subscribe(response =>{
-            this.get();
+        this._deal.post(deal).subscribe((response:any) =>{
+            deal.deal.db_id = response;
+            this.deals.push(deal.deal)
         });
     }
 

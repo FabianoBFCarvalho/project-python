@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Property } from '../interfaces/property';
 import { AppService } from './app.service';
 import { RequestService } from './request.service';
+import { PropertyProfile } from '../interfaces/property-profile';
 
 @Injectable()
 export class PropertiesService {
@@ -27,6 +28,29 @@ export class PropertiesService {
                 console.log(error);
             });
         });
+    }
+
+    getFromSearch(profile: PropertyProfile) {
+        let params = this.prepareParametersSearch(profile);
+        return new Observable<any>(observer => {
+            this._request.get(this._app.apiUrl() + '/properties/search' + '?'+params).subscribe(response => {
+                observer.next(response);
+                observer.complete();
+            }, error => {
+                console.log('error get');
+                console.log(error);
+            });
+        });
+    }
+
+    prepareParametersSearch(profile: PropertyProfile) {
+        let params = `bedrooms=${profile.bedrooms}` +
+        `&bathrooms=${profile.bathrooms}` +
+        `&vacancies=${profile.vacancies}` +
+        `&area=${profile.area}`+
+        `&neighborhood=${profile.neighborhood}` +
+        `&value=${profile.value}`;
+        return params;
     }
 
     post(property: Property): Observable<any> {        

@@ -32,7 +32,7 @@ export class DealService {
         return new Observable<DealObjectPrepare>(observer => {
             this._request.post(this._app.apiUrl() + '/deals', {'deal': this.prepareDeal(dealPrepare)}).subscribe(
                 response => {
-					observer.next(response);
+					observer.next(response.db_id);
 					observer.complete();
 				},
 				error => {

@@ -1,5 +1,5 @@
 <form #form="ngForm" (ngSubmit)="save(form)">
-    <ion-label position="floating">Address</ion-label>
+    <ion-label>Address</ion-label>
     <ion-input [(ngModel)]="property.address" name="address"> </ion-input>
     <ion-label>City</ion-label>
     <ion-input [(ngModel)]="property.city" type="text" required name="city"></ion-input>
@@ -9,7 +9,17 @@
     <ion-input type="number" [(ngModel)]="property.value" name="value"></ion-input>
     <ion-label>Site</ion-label>
     <ion-input [(ngModel)]="property.site" name="site"></ion-input>
-    <ion-label position="floating">Description</ion-label>
+    <ion-label>Neighborhood</ion-label>
+    <ion-input [(ngModel)]="property.neighborhood" name="neighborhood"></ion-input>
+    <ion-label>Bedrooms</ion-label>
+    <ion-input type="number" [(ngModel)]="property.bedrooms" name="bedrooms"></ion-input>
+    <ion-label>Bathrooms</ion-label>
+    <ion-input type="number" [(ngModel)]="property.bathrooms" name="bathrooms"></ion-input>
+    <ion-label>Vacancies</ion-label>
+    <ion-input type="number" [(ngModel)]="property.vacancies" name="vacancies"></ion-input>
+    <ion-label>Area</ion-label>
+    <ion-input type="number" [(ngModel)]="property.area" name="area"></ion-input>
+    <ion-label>Description</ion-label>
     <ion-textarea [(ngModel)]="property.description" name="description"></ion-textarea>
 
 </form>

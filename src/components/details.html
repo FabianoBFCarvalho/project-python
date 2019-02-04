@@ -12,6 +12,16 @@
     <p> <i>Status: </i> {{deal.status}}</p>
     <p> <i>Contact: </i> {{deal.contact?.name}}</p>
     <p> <i>Property address: </i> {{deal.property?.address}}</p>
+    <div *ngIf="deal.profile"> <i>Property profile </i>
+        <div *ngFor="let profile of deal.profile">
+            <p *ngIf="profile.neighborhood"> <i>Neighborhood: </i> {{profile.neighborhood}}</p>
+            <p *ngIf="profile.value"> <i>Value: </i> {{profile.value}}</p>
+            <p *ngIf="profile.bedrooms"> <i>Bedrooms: </i> {{profile.bedrooms}}</p>
+            <p *ngIf="profile.bathrooms"> <i>Bathrooms: </i> {{profile.bathrooms}}</p>
+            <p *ngIf="profile.vacancies"> <i>Vacancies: </i> {{profile.vacancies}}</p>
+            <p *ngIf="profile.area"> <i>Area: </i> {{profile.area}}</p>
+        </div>
+    </div>
 </div>
 
 <div *ngIf="property" class="property-details">
@@ -20,4 +30,10 @@
     <p> <i>Finality: </i> {{property.finality}}</p>
     <p> <i>Site: </i> {{property.site}}</p>
     <p> <i>Description: </i> {{property.description}}</p>
+    <p> <i>Neighborhood: </i> {{property.neighborhood}}</p>
+    <p> <i>Bedrooms: </i> {{property.bedrooms}}</p>
+    <p> <i>Bathrooms: </i> {{property.bathrooms}}</p>
+    <p> <i>Vacancies: </i> {{property.vacancies}}</p>
+    <p> <i>Area: </i> {{property.area}}</p>
+
 </div>

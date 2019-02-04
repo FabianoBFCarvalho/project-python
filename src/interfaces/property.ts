@@ -5,5 +5,10 @@ export class Property {
     city: string;
     description: string;
     site: string;
-    value: number
+    neighborhood: string;
+    value: number;
+    bedrooms: number;
+    bathrooms: number;
+    vacancies: number;
+    area: number;
 }   

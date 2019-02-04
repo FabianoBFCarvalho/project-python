@@ -15,9 +15,33 @@ export class ContactService {
         private _request: RequestService
     ) { }
     
-    get(): Observable<Contact[]> {
+    getContacts(): Observable<Contact[]> {
         return new Observable<Contact[]>(observer => {
             this._request.get(this._app.apiUrl() + '/contacts').subscribe(response => {
+                observer.next(response);
+                observer.complete();
+            }, error => {
+                console.log('error get');
+                console.log(error);
+            });
+        });
+    }
+
+    getContact(db_id: string): Observable<Contact> {
+        return new Observable<Contact>(observer => {
+            this._request.get(this._app.apiUrl() + '/contacts/' + db_id).subscribe(response => {
+                observer.next(response);
+                observer.complete();
+            }, error => {
+                console.log('error get');
+                console.log(error);
+            });
+        });
+    }
+
+    getFromSearch(textSearch: string) {
+        return new Observable<Contact[]>(observer => {
+            this._request.get(this._app.apiUrl() + '/contacts' + '?'+'search_text=' + textSearch).subscribe(response => {
                 observer.next(response);
                 observer.complete();
             }, error => {

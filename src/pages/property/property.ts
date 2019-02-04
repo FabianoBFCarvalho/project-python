@@ -4,6 +4,7 @@ import { Property } from '../../interfaces/property';
 import { PropertiesService } from '../../service/property.service';
 import { ModalController, Modal } from 'ionic-angular';
 import { PropertyForm } from './property-form';
+import { PropertySearch } from './property-search';
 
 @Component({
 	selector: 'property',
@@ -39,6 +40,15 @@ export class PropertyPage {
 				else
 					this.save(property);
 			}
+		});
+		modal.present();
+	}
+
+	searchProperties() {
+		let modal: Modal = this.modalController.create(PropertySearch);
+		modal.onWillDismiss(property => {
+			if (property)
+				this.showProperty(property);
 		});
 		modal.present();
 	}

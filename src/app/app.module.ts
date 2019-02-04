@@ -18,6 +18,9 @@ import { RequestService } from '../service/request.service';
 import { PropertyForm } from '../pages/property/property-form';
 import { DealForm } from '../pages/deal/deal-form';
 import { ContactForm } from '../pages/contact/contact-form';
+import { ContactSearch } from '../pages/contact/search-contact';
+import { DealSearch } from '../pages/deal/deal-search';
+import { PropertySearch } from '../pages/property/property-search';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ContactForm } from '../pages/contact/contact-form';
     DetailsComponent,
     PropertyForm,
     DealForm,
-    ContactForm
+    ContactForm,
+    ContactSearch,
+    DealSearch,
+    PropertySearch
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,10 @@ import { ContactForm } from '../pages/contact/contact-form';
     DetailsComponent,
     PropertyForm,
     DealForm,
-    ContactForm
+    ContactForm,
+    ContactSearch,
+    DealSearch,
+    PropertySearch
   ],
   providers: [
     StatusBar,

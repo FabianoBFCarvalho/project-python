@@ -1,5 +1,6 @@
 import { Property } from "./property";
 import { Contact } from "./contact";
+import { PropertyProfile } from "./property-profile";
 
 export class Deal {
     db_id: string;
@@ -13,6 +14,7 @@ export class Deal {
         db_id: string;
         address: string;
     }
+    profile: PropertyProfile[];
     interest: string;
     status: string;
 }

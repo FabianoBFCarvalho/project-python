@@ -24,6 +24,19 @@
 .text-input-md {
     border-bottom: 0.2px solid;
 }
+property-search, contact-search {
+    background: white;
+}
+contact-search {
+    div {
+        border: 1px solid gray;
+        margin-bottom: 16px;
+        cursor: pointer;
+    }
+    ion-input {
+        margin: 24px 0;
+    }
+}
 
 ion-icon {
     font-size: 25px;
