@@ -1,3 +1,5 @@
+import { PropertyProfile } from "./property";
+
 export class Contact {
     db_id: string;
     name: string;
@@ -5,5 +7,5 @@ export class Contact {
     phone: string;
     amount_deals: number;
     tags: string;
-    
+    profile: PropertyProfile;
 }

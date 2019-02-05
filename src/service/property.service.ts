@@ -3,10 +3,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { Property } from '../interfaces/property';
+import { Property, SearchProperty } from '../interfaces/property';
 import { AppService } from './app.service';
 import { RequestService } from './request.service';
-import { PropertyProfile } from '../interfaces/property-profile';
+import { prepareParametersSearch } from '../utils/utils';
 
 @Injectable()
 export class PropertiesService {
@@ -16,7 +16,6 @@ export class PropertiesService {
         private httpClient: HttpClient,
         private _request: RequestService
     ) { }
-
 
     get(): Observable<Property[]> {
         return new Observable<Property[]>(observer => {
@@ -30,8 +29,8 @@ export class PropertiesService {
         });
     }
 
-    getFromSearch(profile: PropertyProfile) {
-        let params = this.prepareParametersSearch(profile);
+    getFromSearch(profile: SearchProperty) {
+        let params = prepareParametersSearch(profile);
         return new Observable<any>(observer => {
             this._request.get(this._app.apiUrl() + '/properties/search' + '?'+params).subscribe(response => {
                 observer.next(response);
@@ -43,17 +42,7 @@ export class PropertiesService {
         });
     }
 
-    prepareParametersSearch(profile: PropertyProfile) {
-        let params = `bedrooms=${profile.bedrooms}` +
-        `&bathrooms=${profile.bathrooms}` +
-        `&vacancies=${profile.vacancies}` +
-        `&area=${profile.area}`+
-        `&neighborhood=${profile.neighborhood}` +
-        `&value=${profile.value}`;
-        return params;
-    }
-
-    post(property: Property): Observable<any> {        
+    post(property: Property): Observable<any> {
         return new Observable<any>(observer => {
             this._request.post(this._app.apiUrl() + '/properties', {'property': property}).subscribe(
                 response => {

@@ -1,9 +1,25 @@
-<form #form="ngForm" (ngSubmit)="save(form)">
-    <ion-label >Name</ion-label>
-    <ion-input [(ngModel)]="contact.name" name="name"> </ion-input>
-    <ion-label>Email</ion-label>
-    <ion-input type="text" [(ngModel)]="contact.email" name="email"></ion-input>
-    <ion-label>Phone</ion-label>
-    <ion-input [(ngModel)]="contact.phone" name="phone"></ion-input>
-</form>
-<button ion-button (click)="save(form)">Save</button>
+<ion-content>
+    <form #form="ngForm" (ngSubmit)="save(form)">
+        <ion-label >Name</ion-label>
+        <ion-input [(ngModel)]="contact.name" name="name"> </ion-input>
+        <ion-label>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="contact.email" name="email"></ion-input>
+        <ion-label>Phone</ion-label>
+        <ion-input [(ngModel)]="contact.phone" name="phone"></ion-input>
+        <ion-label class="title" >Property profile</ion-label>
+        <ion-label>Neighborhood</ion-label>
+        <ion-input [(ngModel)]="contact.profile.neighborhood" name="neighborhood"></ion-input>
+    
+        <ion-label>Bedrooms</ion-label>
+        <ion-input type="number" [(ngModel)]="contact.profile.bedrooms" name="bedrooms"></ion-input>
+        <ion-label>Bathrooms</ion-label>
+        <ion-input type="number" [(ngModel)]="contact.profile.bathrooms" name="bathrooms"></ion-input>
+        <ion-label>Vacancies</ion-label>
+        <ion-input type="number" [(ngModel)]="contact.profile.vacancies" name="vacancies"></ion-input>
+        <ion-label>Area</ion-label>
+        <ion-input type="number" [(ngModel)]="contact.profile.area" name="area"></ion-input>
+        <ion-label>Value</ion-label>
+        <ion-input type="number" [(ngModel)]="contact.profile.value" name="value"></ion-input>
+    </form>
+    <button ion-button (click)="save(form)">Save</button>
+</ion-content>

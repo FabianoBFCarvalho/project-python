@@ -1,4 +1,4 @@
-<span class="title-page">Contacts</span> 
+<span class="title-page">Contacts  <button (click)="searchContacts()">Search Contacts</button> </span> 
 <ion-icon name="add" (click)="contactForm()"></ion-icon>
 <ion-content class="content-components">
     <ion-card class="contact" *ngFor="let contact of contacts; let idx=index" (click)="showContact(contact)">

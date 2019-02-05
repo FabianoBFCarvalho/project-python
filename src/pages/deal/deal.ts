@@ -37,7 +37,7 @@ export class DealPage {
         modal.present();
     }
 
-    update(deal: DealObjectPrepare) {
+    update(deal: DealObjectPrepare) {        
         this._deal.update(deal).subscribe(response => {
             deal.deal.db_id = response.db_id;
             this.deals.push(deal.deal);
@@ -49,6 +49,7 @@ export class DealPage {
     }
 
     save(deal: DealObjectPrepare) {
+        console.log(deal);
         this._deal.post(deal).subscribe((response:any) =>{
             deal.deal.db_id = response;
             this.deals.push(deal.deal)

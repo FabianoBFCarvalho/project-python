@@ -9,7 +9,7 @@ import { Contact } from '../../interfaces/contact';
 })
 export class ContactForm {
 
-    public contact: Contact = <Contact>{};
+    public contact: Contact = <Contact>{profile: {}};
 
     constructor(
         private navParams: NavParams,

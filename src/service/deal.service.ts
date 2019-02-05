@@ -60,12 +60,9 @@ export class DealService {
     }
 
     prepareDeal(dealPrepare: DealObjectPrepare) {
-        dealPrepare.deal['contact_id'] = dealPrepare.contact.db_id.toString();
-        dealPrepare.deal['property_id'] = dealPrepare.property.db_id.toString();
-        console.log(dealPrepare);
-        
-        return dealPrepare.deal
-
+        dealPrepare.deal['contact_id'] = dealPrepare.contact.db_id;
+        dealPrepare.deal['property_id'] = dealPrepare.property.db_id;
+        return dealPrepare.deal;
     }
 
     delete(db_id: string) {

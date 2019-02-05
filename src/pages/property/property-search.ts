@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { Property } from '../../interfaces/property';
+import { Property, SearchProperty } from '../../interfaces/property';
 import { PropertiesService } from '../../service/property.service';
-import { PropertyProfile } from '../../interfaces/property-profile';
 
 @Component({
 	selector: 'property-search',
@@ -10,13 +9,10 @@ import { PropertyProfile } from '../../interfaces/property-profile';
 })
 export class PropertySearch {
 
-    public profile: PropertyProfile = <PropertyProfile>{};
+    public profile: SearchProperty = <SearchProperty>{};
     public properties: Property[] = [];
     public countPropertyFounds: number;
-    public area = {
-        upper: 50,
-        lower: 0
-    }
+
     constructor(
         private _property: PropertiesService,
         private viewController: ViewController

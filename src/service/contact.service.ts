@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { HttpClient } from '@angular/common/http';
 import { RequestService } from './request.service';
 import { Contact } from '../interfaces/contact';
+import { PropertyProfile, SearchProperty } from '../interfaces/property';
+import { prepareParametersSearch } from '../utils/utils';
 
 @Injectable()
 export class ContactService {
@@ -39,9 +41,22 @@ export class ContactService {
         });
     }
 
-    getFromSearch(textSearch: string) {
+    getFromSearch(textSearch: string): Observable<any> {
         return new Observable<Contact[]>(observer => {
             this._request.get(this._app.apiUrl() + '/contacts' + '?'+'search_text=' + textSearch).subscribe(response => {
+                observer.next(response);
+                observer.complete();
+            }, error => {
+                console.log('error get');
+                console.log(error);
+            });
+        });
+    }
+
+    getContactsearch(profile: SearchProperty): Observable<any> {
+        let params = prepareParametersSearch(profile);
+        return new Observable<any>(observer => {
+            this._request.get(this._app.apiUrl() + '/contacts/search' + '?'+ params).subscribe(response => {
                 observer.next(response);
                 observer.complete();
             }, error => {

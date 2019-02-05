@@ -21,6 +21,7 @@ import { ContactForm } from '../pages/contact/contact-form';
 import { ContactSearch } from '../pages/contact/search-contact';
 import { DealSearch } from '../pages/deal/deal-search';
 import { PropertySearch } from '../pages/property/property-search';
+import { ContactProfileSearch } from '../pages/contact/contact-profile-search';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PropertySearch } from '../pages/property/property-search';
     ContactForm,
     ContactSearch,
     DealSearch,
-    PropertySearch
+    PropertySearch,
+    ContactProfileSearch,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { PropertySearch } from '../pages/property/property-search';
     ContactForm,
     ContactSearch,
     DealSearch,
-    PropertySearch
+    PropertySearch,
+    ContactProfileSearch,
   ],
   providers: [
     StatusBar,

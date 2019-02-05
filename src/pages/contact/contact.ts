@@ -4,6 +4,7 @@ import { Contact } from '../../interfaces/contact';
 import { ContactService } from '../../service/contact.service';
 import { ModalController, Modal } from 'ionic-angular';
 import { ContactForm } from './contact-form';
+import { ContactProfileSearch } from './contact-profile-search';
 
 @Component({
 	selector: 'contact',
@@ -29,6 +30,15 @@ export class ContactPage {
             console.log(contacts);
             
         });
+    }
+    
+    searchContacts() {
+		let modal: Modal = this.modalController.create(ContactProfileSearch);
+		modal.onDidDismiss(contact => {
+            if (contact)
+                this.showContact(contact)
+		});
+		modal.present();
     }
 
     contactForm(contact: Contact = undefined) {

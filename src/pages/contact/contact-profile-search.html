@@ -1,4 +1,7 @@
 <ion-content>
+    <ion-label class="neighborhood">Neighborhood</ion-label>
+    <ion-input class="neighborhood" type="text" [(ngModel)]="profile.neighborhood"></ion-input>
+
     <ion-label>Bedrooms Min</ion-label>
     <ion-input type="number" [(ngModel)]="profile.bedrooms_min"></ion-input>
     <ion-label>Bedrooms Max</ion-label>
@@ -26,10 +29,11 @@
 
     <button ion-button (click)="search()">Search</button>
 
-    <div class="result-search" *ngIf="countPropertyFounds">
-        <span>Properties found {{countPropertyFounds}} </span>
-        <ion-card *ngFor="let property of properties" (click)="select(property)" class="property">
-            <span>Address:  {{property.address}} </span>
+    <div class="result-search" *ngIf="countContactsFounds">
+        <span>Contacts found {{countContactsFounds}} </span>
+        <ion-card *ngFor="let contact of contacts" (click)="select(contact)" class="contact">
+            <span>Name: {{contact.name}} </span>
         </ion-card>
     </div>
 </ion-content>
+    

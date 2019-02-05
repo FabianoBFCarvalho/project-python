@@ -4,6 +4,14 @@
     <p> <i>Tellphone: </i> {{contact.phone}}</p>
     <p> <i>Amount Deals: </i> {{contact.amount_deals}}</p>
     <p> <i>Tags: </i> {{contact.tags}}</p>
+    <div> <i>Contact profile </i>
+        <p *ngIf="contact.profile.neighborhood"> <i>Neighborhood: </i> {{contact.profile.neighborhood}}</p>
+        <p *ngIf="contact.profile.value"> <i>Value: </i> {{contact.profile.value}}</p>
+        <p *ngIf="contact.profile.bedrooms"> <i>Bedrooms: </i> {{contact.profile.bedrooms}}</p>
+        <p *ngIf="contact.profile.bathrooms"> <i>Bathrooms: </i> {{contact.profile.bathrooms}}</p>
+        <p *ngIf="contact.profile.vacancies"> <i>Vacancies: </i> {{contact.profile.vacancies}}</p>
+        <p *ngIf="contact.profile.area"> <i>Area: </i> {{contact.profile.area}}</p>
+    </div>
 </div>
 
 <div *ngIf="deal" class="deal-details">
@@ -12,16 +20,6 @@
     <p> <i>Status: </i> {{deal.status}}</p>
     <p> <i>Contact: </i> {{deal.contact?.name}}</p>
     <p> <i>Property address: </i> {{deal.property?.address}}</p>
-    <div *ngIf="deal.profile"> <i>Property profile </i>
-        <div *ngFor="let profile of deal.profile">
-            <p *ngIf="profile.neighborhood"> <i>Neighborhood: </i> {{profile.neighborhood}}</p>
-            <p *ngIf="profile.value"> <i>Value: </i> {{profile.value}}</p>
-            <p *ngIf="profile.bedrooms"> <i>Bedrooms: </i> {{profile.bedrooms}}</p>
-            <p *ngIf="profile.bathrooms"> <i>Bathrooms: </i> {{profile.bathrooms}}</p>
-            <p *ngIf="profile.vacancies"> <i>Vacancies: </i> {{profile.vacancies}}</p>
-            <p *ngIf="profile.area"> <i>Area: </i> {{profile.area}}</p>
-        </div>
-    </div>
 </div>
 
 <div *ngIf="property" class="property-details">
@@ -35,5 +33,4 @@
     <p> <i>Bathrooms: </i> {{property.bathrooms}}</p>
     <p> <i>Vacancies: </i> {{property.vacancies}}</p>
     <p> <i>Area: </i> {{property.area}}</p>
-
 </div>
