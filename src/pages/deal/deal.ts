@@ -38,10 +38,7 @@ export class DealPage {
     }
 
     update(deal: DealObjectPrepare) {        
-        this._deal.update(deal).subscribe(response => {
-            deal.deal.db_id = response.db_id;
-            this.deals.push(deal.deal);
-        });
+        this._deal.update(deal).subscribe(response => {});
     }
 
     get() {
