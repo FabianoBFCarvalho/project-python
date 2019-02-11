@@ -1,5 +1,6 @@
 <ion-content>
     <form #form="ngForm" (ngSubmit)="save(form)">
+        <input type="file" name="avatar" accept="image/png, image/jpeg" (change)="prepareImage($event)">
         <ion-label >Name</ion-label>
         <ion-input [(ngModel)]="contact.name" name="name"> </ion-input>
         <ion-label>Email</ion-label>

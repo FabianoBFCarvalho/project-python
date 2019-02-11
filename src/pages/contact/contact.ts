@@ -28,7 +28,6 @@ export class ContactPage {
         this._contact.getContacts().subscribe(contacts => {
             this.contacts = contacts;
             console.log(contacts);
-            
         });
     }
     
