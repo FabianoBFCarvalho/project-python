@@ -17,6 +17,14 @@ export class RequestService {
         }
     }
 
+    private optionsFormData() {
+        return <any>{
+            withCredentials: false,
+            observe: 'response',
+			'Content-Type': 'multipart/form-data'
+        }
+    }
+
     get(url: string): Observable<any> {
         return new Observable<any>(observer => {
             this.httpClient.get(url, this.options()).subscribe((response: any) => {
@@ -32,6 +40,21 @@ export class RequestService {
     post(url: string, params): Observable<any> {       
         return new Observable<any>(observer => {
 			this.httpClient.post(url, JSON.stringify(params), this.options()).subscribe(
+                (response: any) => {
+					observer.next(response.body);
+					observer.complete();
+				},
+				error => {
+                    console.log('post error');
+                    console.log(error);
+                }
+            );
+		});
+    }
+
+    postForm(url: string, params: FormData) {
+        return new Observable<any>(observer => {
+			this.httpClient.post(url, params, this.optionsFormData()).subscribe(
                 (response: any) => {
 					observer.next(response.body);
 					observer.complete();

@@ -26,13 +26,12 @@ export class ContactForm {
         let formData: FormData = new FormData();
         let file: File = $event.target.files[0];
         console.log(file);
-        // formData.append('image', file, file.name);
-        // console.log(formData);
-        this.fileTob64(file).subscribe(b64 => {
-            this.contact['profile_image'] = b64;
+        formData.append('profile_image', file, file.name);
+        
+        console.log(formData);
+        this.fileTob64(file).subscribe((blob: Blob) => {
+            this.contact['profile_image'] = formData;
             console.log(this.contact);
-            
-            
         });
         
     }
@@ -46,7 +45,14 @@ export class ContactForm {
                     let image = new Image();
                     image.onload = (event) => {
                         let canvas = document.createElement('canvas');
-                        observer.next(canvas.toDataURL());
+                        canvas.toBlob(blob => {
+                            // vontando blob
+                            console.log('voltando file');
+                            
+                            observer.next(blob);
+                            // voltando b64
+                            // observer.next(canvas.toDataURL());
+                        });
                     }
                     image.src = readerEvent.target['result'];
                 };        
@@ -57,7 +63,9 @@ export class ContactForm {
     }
 
     save(form: NgForm) {
+        console.log(this.contact);
         this.viewController.dismiss(this.contact);
+        
     }
 
     close() {

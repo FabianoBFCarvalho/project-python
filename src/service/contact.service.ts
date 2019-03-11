@@ -66,9 +66,24 @@ export class ContactService {
         });
     }
 
-    post(contact: Contact): Observable<any> {        
+    post(contact: Contact): Observable<any> {
         return new Observable<any>(observer => {
             this._request.post(this._app.apiUrl() + '/contacts', {'contact': contact}).subscribe(
+                response => {
+					observer.next(response);
+					observer.complete();
+				},
+				error => {
+                    console.log('post error');
+                    console.log(error);
+                }
+            );
+		});
+    }
+
+    savePhoto(photoFormData: FormData) {
+        return new Observable<any>(observer => {
+            this._request.postForm(this._app.apiUrl() + '/contacts/photo', photoFormData).subscribe(
                 response => {
 					observer.next(response);
 					observer.complete();

@@ -54,6 +54,13 @@ export class ContactPage {
     }
 
     save(contact: Contact) {
+        if (contact['profile_image'])
+            this._contact.savePhoto(contact['profile_image']).subscribe(response => {
+                console.log(response);
+            }, error => {
+                console.log('save photo error');
+                console.log(error);
+            });
         this._contact.post(contact).subscribe(response => {
             contact.db_id = response.db_id;
             this.contacts.push(contact);
